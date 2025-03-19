@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-grid slds-align-middle">
+        <!-- Lightning Avatar component to show user initials -->
+        <lightning-avatar 
+            initials={initials} 
+            fallback-icon-name="standard:user" 
+            alternative-text={name}
+            size="small"
+            class="slds-m-right_small">
+        </lightning-avatar>
+        
+        <!-- Display User Name -->
+        <h2 class="slds-text-heading_small">{name}</h2>
+    </div>
+</template>

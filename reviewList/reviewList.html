@@ -1,0 +1,18 @@
+<template>
+    <div>
+        <h2>Aggregate Rating</h2>
+        <template if:true={ratingDistribution.length}>
+            <ul class="rating-list">
+                <template for:each={ratingDistribution} for:item="ratingData">
+                    <li key={ratingData.rating} class="rating-item">
+                        <strong>
+                            <span class="star-rating">{ratingData.stars}</span>: {ratingData.percentage}%
+                        </strong>
+                        <lightning-progress-bar value={ratingData.percentage} variant="success" class="progress-bar">
+                        </lightning-progress-bar>
+                    </li>
+                </template>
+            </ul>
+        </template>
+    </div>
+</template>

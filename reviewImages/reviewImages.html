@@ -1,0 +1,19 @@
+<template>
+    <!-- Show spinner while loading -->
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading images..." size="medium"></lightning-spinner>
+    </template>
+
+    <!-- Display images if available -->
+    <template if:true={imageUrls.length}>
+        <div class="image-gallery">
+            <template for:each={imageUrls} for:item="imgUrl">
+                <div key={imgUrl} class="image-container">
+                    <a href={imgUrl}>
+                        <img src={imgUrl} alt="Review Image" class="preview-image"/>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

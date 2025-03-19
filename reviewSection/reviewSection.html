@@ -1,0 +1,57 @@
+<template>
+    <div class="review-container">
+        <lightning-card>
+            <!-- Product Reviews Title -->
+            <h2 class="slds-text-heading_medium slds-text-title_bold">Product Reviews</h2>
+
+            <!-- Rating and Comment Form -->
+            <template if:false={hasUserCommented}>
+                <div class="card">
+                    <h1>Rate this product</h1>
+                    <br />
+                    <c-star-rating default-rating={rating} onratingclick={handleRatingClick}></c-star-rating>
+                    <h3>Rating is: {rating}/5</h3>
+                    <template if:true={ratingError}>
+                        <p class="error-message">Please provide a rating.</p>
+                    </template>
+                </div>
+
+                <lightning-spinner if:true={isLoading} alternative-text="Processing..."></lightning-spinner>
+
+                <lightning-textarea 
+                    label="Comment" 
+                    value={comment} 
+                    onchange={handleCommentChange}>
+                </lightning-textarea>
+                <template if:true={commentError}>
+                    <p class="error-message">Please enter a comment.</p>
+                </template>
+
+                <c-image-uploader onimagesuploaded={handleImagesUploaded}></c-image-uploader>
+
+                <lightning-button 
+                    label="Submit Review" 
+                    variant="brand" 
+                    onclick={handleSubmit} 
+                    disabled={isSubmitDisabled}>
+                </lightning-button>
+            </template>
+
+            <!-- Display Reviews -->
+            <template if:true={records.length}>
+                <c-review-list records={records}></c-review-list>
+                <template for:each={records} for:item="review">
+                    <p key={review.Id} class="review-entry">
+                        <c-review-user-avatar user-id={review.ReviewedBy__c}></c-review-user-avatar>
+                        {review.Rating__c} Stars - {review.Comment__c}
+                        <c-review-images review-id={review.Id}></c-review-images>
+                    </p>
+                </template>
+            </template>
+
+            <template if:false={records.length}>
+                <p>No reviews yet.</p>
+            </template>
+        </lightning-card>
+    </div>
+</template>

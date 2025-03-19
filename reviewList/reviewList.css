@@ -1,0 +1,21 @@
+.rating-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rating-item {
+    margin-bottom: 10px;
+    width: 70%;
+}
+
+.star-rating {
+    color: orange;
+    font-size: 1.2rem;
+}
+
+.progress-bar {
+    width: 50%;
+    max-width: 300px;
+    margin-top: 5px;
+}

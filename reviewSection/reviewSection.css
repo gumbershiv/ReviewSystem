@@ -1,0 +1,17 @@
+.review-container {
+    border: 2px solid #d8dde6;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-entry {
+    padding: 10px;
+    border-bottom: 1px solid #d8dde6;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

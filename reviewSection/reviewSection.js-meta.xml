@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+    
+    <!-- Description of the Lightning Web Component -->
+    <description>This component allows users to submit and view product reviews, including ratings, comments, and images.</description>
+
+    <targets>
+        <target>lightningCommunity__Page</target> 
+        <target>lightningCommunity__Default</target> 
+        <target>lightning__RecordAction</target>  
+    </targets>
+</LightningComponentBundle>

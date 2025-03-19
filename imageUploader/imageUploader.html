@@ -1,0 +1,27 @@
+<template>
+    <!-- Lightning Card for Image Upload -->
+    <lightning-card title="Upload Images">
+        <!-- File Upload Component -->
+        <lightning-file-upload
+            label="Upload Images"
+            name="imageUploader"
+            record-id={recordId}
+            onuploadfinished={handleUploadFinished}
+            multiple>
+        </lightning-file-upload>
+
+        <!-- Uploaded File Grid (File Name + Extension as Icon) -->
+        <template if:true={uploadedFiles.length}>
+            <div class="slds-m-top_medium slds-grid slds-wrap">
+                <template for:each={uploadedFiles} for:item="file">
+                    <div key={file.id} class="slds-col slds-size_1-of-6 slds-p-around_x-small file-item">
+                        <div class="file-icon">
+                            <lightning-icon icon-name={file.icon} size="medium"></lightning-icon>
+                        </div>
+                        <div class="file-name">{file.name}</div>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>
